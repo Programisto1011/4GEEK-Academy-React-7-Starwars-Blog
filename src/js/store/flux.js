@@ -3,7 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			urlAPI: 'https://www.swapi.tech/api',
 			peopleData: [],
-			planetData: []
+			planetData: [],
 		},
 
 		actions: {
@@ -25,7 +25,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				throw new Error('Loading People Failed')
 			})
 			.then((res) => {
-				setStore({peopleData:res.results})
+				setStore({peopleData:res.results});
+				setStore({peopleData: peopleData});
 					
 			})
 			.catch((err) => console.error(err)); 
@@ -42,7 +43,7 @@ headers: {
 },
 })
 .then((response) => {
-	//console.log(response);
+	console.log(response);
 	if (response.ok) {
 		return response.json();
 	}
@@ -50,7 +51,8 @@ headers: {
 })
 .then((res) => {
 	setStore({planetData:res.results});
-	console.log({planetData:res.results})
+	setStore({planetData: planetData});
+	//console.log({planetData:res.results})
 		
 })
 .catch((err) => console.error(err)); 
@@ -69,7 +71,7 @@ headers: {
 			// 	//get the store
 				
 
-			createCards : (people) => {
+			createCards : () => {
 
 				const store = getStore();
 				// we have to loop the entire demo array to look for the respective index
@@ -79,7 +81,8 @@ headers: {
 				});
 
 				//reset the global store
-				setStore({ Card: Card});
+				
+				
 			}
 		}
 	};
