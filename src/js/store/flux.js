@@ -65,19 +65,21 @@ headers: {
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
+			// changeColor: (index, color) => {
+			// 	//get the store
+				
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
+			createCards : (people) => {
+
+				const store = getStore();
+				// we have to loop the entire demo array to look for the respective index
+				// and change its color
+				const people = store.peopleData.map((elm, i) => {
+					return <Card key={elm.uid} name={elm.name} url={elm.url}/>
 				});
 
 				//reset the global store
-				setStore({ demo: demo });
+				setStore({ Card: Card});
 			}
 		}
 	};
