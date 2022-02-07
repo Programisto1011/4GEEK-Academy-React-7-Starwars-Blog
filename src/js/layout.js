@@ -7,7 +7,7 @@ import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/Navbar.jsx";
+import { OwnNavbar } from "./component/OwnNavbar.jsx";
 
 
 //create your first component
@@ -16,11 +16,19 @@ const Layout = () => {
 	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
 
+	//const [list, setList] = useState([])
+	const list = ["hola", "fdjslfdkjdfsl"];
+
+	const addElementListArr = (inputValue) => {
+		setList([...list, inputValue]);
+		console.log(list);
+	};
+
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
 				
-					<Navbar />
+					<OwnNavbar list={list}/>
 					<Switch>
 						<Route exact path="/">
 							<Home />
