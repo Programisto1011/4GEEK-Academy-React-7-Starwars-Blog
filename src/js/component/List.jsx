@@ -14,7 +14,7 @@ const List = (props) => {
 		console.log(props.list);
 		let temp = props.list;
 		temp.splice(index, 1);
-		setList([...props.list]);
+		setList([...props.list]); //<-----------------------------------
 		console.log(props.list);
 		console.log(`Se ha eliminado el elemento ${index} de la lista`);
 	};
