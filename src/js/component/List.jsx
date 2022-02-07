@@ -4,22 +4,24 @@ import ElementList from "./ElementList.jsx";
 
 import "../../styles/List.css";
 
-const List = () => {
-	const [inputValue, setInputValue] = useState("");
-	const [list, setList] = useState([]);
+const List = (props) => {
+
+        const handleClick = (ev) => {
+            props.handleClick(ev);
+        };
 
 	const deleteElement = (index) => {
-		console.log(list);
-		let temp = list;
+		console.log(props.list);
+		let temp = props.list;
 		temp.splice(index, 1);
-		setList([...list]);
-		console.log(list);
+		setList([...props.list]);
+		console.log(props.list);
 		console.log(`Se ha eliminado el elemento ${index} de la lista`);
 	};
 
-	if (list.length !== 0) {
+	if (props.list.length !== 0) {
 		var listItems;
-		listItems = list.map((inputValue, index) => (
+		listItems = props.list.map((inputValue, index) => (
 			<ElementList
 				key={index}
 				name={inputValue}
@@ -28,28 +30,12 @@ const List = () => {
 		));
 	}
 
-	const addElementListArr = () => {
-		setList([...list, inputValue]);
-		console.log(list);
-	};
-
 	return (
 		<>
 			<div class="container-flex">
 				<div className="row d-flex">
-					<input
-						type="text"
-						onChange={(e) => setInputValue(e.target.value)}
-						value={inputValue}
-					/>
-					<button
-						onClick={() => {
-							addElementListArr();
-						}}>
-						Insert
-					</button>
 				</div>
-				{list.length !== 0 ? listItems : ""}
+				{props.list.length !== 0 ? listItems : ""}
 			</div>
 		</>
 	);

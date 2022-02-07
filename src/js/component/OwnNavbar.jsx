@@ -8,12 +8,11 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import List from "./List.jsx";
 
 export const OwnNavbar = (props) => {
-	// if (list.length !== 0) {
-	// 	var listFavorites;
-	// 	listItems = list.map((inputValue, index) => (
-	// 		<NavDropdown.Item handleClick={() => deleteElement(index)}>Hola</NavDropdown.Item>
-	// 	));
-	// }
+	
+	const handleClick = (ev) => {
+		props.handleClick(ev);
+	};
+	
 	return (
 		<Navbar collapseOnSelect bg="dark" variant="dark">
 		<Container>
@@ -29,7 +28,7 @@ export const OwnNavbar = (props) => {
 			</Nav>
 			<Nav>
 			<NavDropdown title={`Favorites ${props.nFavorites}`} id="collasible-nav-dropdown">
-				<List />
+				<List list={props.list}/>
 			</NavDropdown>
 			</Nav>
 		</Navbar.Collapse>
