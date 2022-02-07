@@ -1,0 +1,11 @@
+.row{
+    width: 100%;
+    margin: auto;
+    display: inline-flex;
+} 
+.nameList{
+    width: 50%;
+}
+.buttonList{
+    width: 50%;
+}

@@ -69,7 +69,7 @@ headers: {
 			// 	//get the store
 				
 
-			createCards : (people) => {
+			createCards : (peopleData) => {
 
 				const store = getStore();
 				// we have to loop the entire demo array to look for the respective index
