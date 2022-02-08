@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import * as PropTypes from "prop-types";
 import '../../styles/Card.css'
 import { useContext } from "react";
@@ -8,7 +7,6 @@ import { Context } from "../store/appContext.js";
 const Card = (props) => {
 	const { store, actions } = useContext(Context);
 	return (
-	<>
 	<div className="container justify-content-center">
 		<div className="card">
 			<div className="card-body">
@@ -23,7 +21,6 @@ const Card = (props) => {
 
 		</div>
 	</div>
-	</>	
 	);
 };
 

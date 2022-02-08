@@ -20,16 +20,13 @@ export const Home = () => {
       <div className="row">
         {store.peopleData.map((peopleData, index) => {
           return (
-            <>
-              <div className="d-flex col-3">
-                <Card
-                  key={index}
+              <div className="d-flex col-3" key={index}>
+                <Card               
                   title={peopleData.name}
                   gender={peopleData.gender}
                   height={peopleData.height}
                 />
               </div>
-            </>
           );
         })}
       </div>
@@ -37,11 +34,9 @@ export const Home = () => {
       <div className="row">
         {store.planetData.map((planetData, index) => {
           return (
-            <>
-              <div className="d-flex col-3">
-                <Card key={index} title={planetData.name} />
+              <div className="d-flex col-3" key={index} >
+                <Card title={planetData.name} />
               </div>
-            </>
           );
         })}
       </div>

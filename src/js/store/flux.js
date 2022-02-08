@@ -11,7 +11,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Use getActions to call a function within a fuction
 
 			addElementListArr: (inputValue) => {
-				setStore({list:[...store.list, inputValue]})
+				setStore({list:[...getStore().list, inputValue]})
 				},
 
 			deleteElement: (index) => {
