@@ -4,6 +4,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			urlAPI: 'https://www.swapi.tech/api',
 			peopleData: [],
 			planetData: [],
+			peopleDetail: [],
+			planetDetail: [],
 		},
 
 		actions: {
