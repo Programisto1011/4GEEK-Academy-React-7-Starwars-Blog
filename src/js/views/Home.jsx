@@ -21,12 +21,13 @@ export const Home = () => {
         {store.peopleData.map((peopleData, index) => {
           return (
             <>
-              <div className="d-flex col-3">
+              <div className="d-flex col-lg-3 m-5">
                 <Card
                   key={index}
                   title={peopleData.name}
                   gender={peopleData.gender}
                   height={peopleData.height}
+                  uid={peopleData.uid}
                 />
               </div>
             </>
@@ -34,12 +35,12 @@ export const Home = () => {
         })}
       </div>
 
-      <div className="row">
+      <div className="row overflow-auto">
         {store.planetData.map((planetData, index) => {
           return (
             <>
               <div className="d-flex col-3">
-                <Card key={index} title={planetData.name} />
+                <Card key={index} title={planetData.name} uid={planetData.uid} />
               </div>
             </>
           );
