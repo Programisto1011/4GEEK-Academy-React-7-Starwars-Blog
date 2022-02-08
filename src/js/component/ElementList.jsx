@@ -15,15 +15,15 @@ const ElementList = (props) => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="row d-flex">
+		<div className="row">
 			<div className="bg-light nameList">{props.name}</div>
 			<div className="text-center ">
-				<button class="buttonList" onClick={() =>  actions.deleteElement(props.index)}>
                 <img 
                     height="20"
                     className="d-inline-block align-top"
-                    alt="Delete icon" src={DeleteIcon} />
-				</button>
+                    alt="Delete icon" src={DeleteIcon}
+					onClick={() =>  actions.deleteElement(props.index)} />
+				
 			</div>
 		</div>
 	);
