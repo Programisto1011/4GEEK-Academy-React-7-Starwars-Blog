@@ -6,9 +6,15 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import List from "./List.jsx";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "../store/appContext.js";
+
 
 export const OwnNavbar = (props) => {
-	
+
+	const { store, actions } = useContext(Context);
+
 	const handleClick = (ev) => {
 		props.handleClick(ev);
 	};
@@ -27,8 +33,8 @@ export const OwnNavbar = (props) => {
 			<Nav className="me-auto">
 			</Nav>
 			<Nav>
-			<NavDropdown title={`Favorites ${props.nFavorites}`} id="collasible-nav-dropdown">
-				<List list={props.list}/>
+			<NavDropdown title={`Favorites ${store.list.length}`} id="collasible-nav-dropdown">
+				<List list={store.list}/>
 			</NavDropdown>
 			</Nav>
 		</Navbar.Collapse>

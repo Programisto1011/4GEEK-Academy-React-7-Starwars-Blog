@@ -1,31 +1,26 @@
 import React, { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 import ElementList from "./ElementList.jsx";
+import { useContext } from "react";
+import { Context } from "../store/appContext.js";
 
 import "../../styles/List.css";
 
-const List = (props) => {
+const List = () => {
 
-        const handleClick = (ev) => {
+	const { store, actions } = useContext(Context);
+    
+	const handleClick = (ev) => {
             props.handleClick(ev);
         };
 
-	const deleteElement = (index) => {
-		console.log(props.list);
-		let temp = props.list;
-		temp.splice(index, 1);
-		setList([...props.list]); //<-----------------------------------
-		console.log(props.list);
-		console.log(`Se ha eliminado el elemento ${index} de la lista`);
-	};
-
-	if (props.list.length !== 0) {
+	if (store.list.length !== 0) {
 		var listItems;
-		listItems = props.list.map((inputValue, index) => (
+		listItems = store.list.map((inputValue, index) => (
 			<ElementList
 				key={index}
 				name={inputValue}
-				handleClick={() => deleteElement(index)}
+				handleClick={() => actions.deleteElement(index)}
 			/>
 		));
 	}
@@ -35,7 +30,7 @@ const List = (props) => {
 			<div class="container-flex">
 				<div className="row d-flex">
 				</div>
-				{props.list.length !== 0 ? listItems : ""}
+				{store.list.length !== 0 ? listItems : ""}
 			</div>
 		</>
 	);

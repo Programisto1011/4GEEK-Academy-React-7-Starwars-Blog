@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as PropTypes from "prop-types";
 import '../../styles/Card.css'
-
-
+import { useContext } from "react";
+import { Context } from "../store/appContext.js";
 
 const Card = (props) => {
+	const { store, actions } = useContext(Context);
 	return (
 	<>
 	<div className="container justify-content-center">
@@ -16,7 +17,7 @@ const Card = (props) => {
 				<p className="card-text"> {props.height}<br /> {props.gender}</p>
 				<div className="cardFooter">
 				<button className="btn btn-primary">Details</button>
-				<span className="favIcon"><i className="fas fa-heart"></i></span>
+				<span className="favIcon"><i className="fas fa-heart" onClick={actions.addElementListArr(props.title)}></i></span>
 				</div>
 			</div>
 

@@ -16,19 +16,11 @@ const Layout = () => {
 	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
 
-	//const [list, setList] = useState([])
-	const list = ["hola", "fdjslfdkjdfsl"];
-
-	const addElementListArr = (inputValue) => {
-		setList([...list, inputValue]);
-		console.log(list);
-	};
-
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
 				
-					<OwnNavbar list={list}/>
+					<OwnNavbar/>
 					<Switch>
 						<Route exact path="/">
 							<Home />

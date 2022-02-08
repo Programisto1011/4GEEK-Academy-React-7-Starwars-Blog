@@ -4,10 +4,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 			urlAPI: 'https://www.swapi.tech/api',
 			peopleData: [],
 			planetData: [],
+			list: ["Selecccionar favoritos"],
 		},
 
 		actions: {
 			// Use getActions to call a function within a fuction
+
+			addElementListArr: (inputValue) => {
+				setStore({list:[...store.list, inputValue]})
+				},
+
+			deleteElement: (index) => {
+				let temp = store.list;
+				temp.splice(index, 1);
+				setStore({list:[...store.list]});
+				console.log(`Se ha eliminado el elemento ${index} de la lista`);
+				},
 
 			// Cargar Personajes
 			LoadDataPeople: () => {
@@ -17,7 +29,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			headers: {
 				Accept: "application/json",
 			},
-		})
+			})
 			.then((response) => {
 				if (response.ok) {
 					return response.json();
@@ -31,32 +43,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 			})
 			.catch((err) => console.error(err)); 
 			},
-
-// Cargar Planetas 
-
-LoadDataPlanet: () => {
-	//console.log((getStore().urlAPI).concat('/planets'))
-fetch((getStore().urlAPI).concat('/planets'), {
-method: "GET",
-headers: {
-	Accept: "application/json",
-},
-})
-.then((response) => {
-	console.log(response);
-	if (response.ok) {
-		return response.json();
-	}
-	throw new Error('Loading Planets Failed')
-})
-.then((res) => {
-	setStore({planetData:res.results});
-	setStore({planetData: planetData});
-	//console.log({planetData:res.results})
-		
-})
-.catch((err) => console.error(err)); 
-},
+			// Cargar Planetas
+			LoadDataPlanet: () => {
+				//console.log((getStore().urlAPI).concat('/planets'))
+			fetch((getStore().urlAPI).concat('/planets'), {
+			method: "GET",
+			headers: {
+				Accept: "application/json",
+			},
+			})
+			.then((response) => {
+				console.log(response);
+				if (response.ok) {
+					return response.json();
+				}
+				throw new Error('Loading Planets Failed')
+			})
+			.then((res) => {
+				setStore({planetData:res.results});
+				setStore({planetData: planetData});
+				//console.log({planetData:res.results})
+					
+			})
+			.catch((err) => console.error(err)); 
+			},
 
 
 			exampleFunction: () => {
