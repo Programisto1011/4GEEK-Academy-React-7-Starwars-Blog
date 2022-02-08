@@ -14,10 +14,6 @@ import { Context } from "../store/appContext.js";
 export const OwnNavbar = (props) => {
 
 	const { store, actions } = useContext(Context);
-
-	const handleClick = (ev) => {
-		props.handleClick(ev);
-	};
 	
 	return (
 		<Navbar collapseOnSelect bg="dark" variant="dark">

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import ElementList from "./ElementList.jsx";
 import { useContext } from "react";
 import { Context } from "../store/appContext.js";
@@ -9,10 +8,6 @@ import "../../styles/List.css";
 const List = () => {
 
 	const { store, actions } = useContext(Context);
-    
-	const handleClick = (ev) => {
-            props.handleClick(ev);
-        };
 
 	if (store.list.length !== 0) {
 		var listItems;
@@ -27,7 +22,7 @@ const List = () => {
 
 	return (
 		<>
-			<div class="container-flex">
+			<div className="container-flex">
 				<div className="row d-flex">
 				</div>
 				{store.list.length !== 0 ? listItems : ""}

@@ -4,7 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			urlAPI: 'https://www.swapi.tech/api',
 			peopleData: [],
 			planetData: [],
-			list: ["Selecccionar favoritos"],
+			list: [],
 		},
 
 		actions: {
@@ -17,7 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			deleteElement: (index) => {
 				let temp = store.list;
 				temp.splice(index, 1);
-				setStore({list:[...store.list]});
+				setStore({list:[...getStore().list]});
 				console.log(`Se ha eliminado el elemento ${index} de la lista`);
 				},
 
@@ -38,7 +38,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			})
 			.then((res) => {
 				setStore({peopleData:res.results});
-				setStore({peopleData: peopleData});
+				// setStore({peopleData: peopleData});
 					
 			})
 			.catch((err) => console.error(err)); 
@@ -61,38 +61,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			})
 			.then((res) => {
 				setStore({planetData:res.results});
-				setStore({planetData: planetData});
+				// setStore({planetData: planetData});
 				//console.log({planetData:res.results})
 					
 			})
 			.catch((err) => console.error(err)); 
-			},
-
-
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			// changeColor: (index, color) => {
-			// 	//get the store
-				
-
-			createCards : () => {
-
-				const store = getStore();
-				// we have to loop the entire demo array to look for the respective index
-				// and change its color
-				const people = store.peopleData.map((elm, i) => {
-					return <Card key={elm.uid} name={elm.name} url={elm.url}/>
-				});
-
-				//reset the global store
-				
-				
 			}
 		}
 	};
