@@ -1,21 +1,20 @@
 import React from "react";
 import ElementList from "./ElementList.jsx";
+import "../../styles/List.css";
 import { useContext } from "react";
 import { Context } from "../store/appContext.js";
 
-import "../../styles/List.css";
-
 const List = () => {
-
+	
 	const { store, actions } = useContext(Context);
 
 	if (store.list.length !== 0) {
 		var listItems;
 		listItems = store.list.map((inputValue, index) => (
 			<ElementList
+				index={index}
 				key={index}
 				name={inputValue}
-				handleClick={() => actions.deleteElement(index)}
 			/>
 		));
 	}

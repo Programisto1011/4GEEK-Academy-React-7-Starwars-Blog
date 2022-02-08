@@ -15,7 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 
 			deleteElement: (index) => {
-				let temp = store.list;
+				let temp = getStore().list;
 				temp.splice(index, 1);
 				setStore({list:[...getStore().list]});
 				console.log(`Se ha eliminado el elemento ${index} de la lista`);
