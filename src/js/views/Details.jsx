@@ -24,10 +24,10 @@ const Details = () => {
       <div className="container justify-content-center">
         <div className="row">
           <div className="col-6">
-            <img src="..." alt={props.name} />
+            <img src="..." alt={store.peopleDetail.name} />
           </div>
           <div className="col-6">
-            <h5>{props.name}</h5>
+            <h5>{store.peopleDetail.name}</h5>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
               neque porro fugit eligendi magnam commodi ex doloremque,
@@ -39,7 +39,7 @@ const Details = () => {
         <div className="row">
           <table>
           <tbody>
-					{table.map((row, i) => (
+					{store.peopleDetail.map((row, i) => (
 						<tr key={i}>
 							{row.map((column, j) => (
 								<td key={j}>
