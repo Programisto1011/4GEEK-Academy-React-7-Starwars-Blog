@@ -47,34 +47,19 @@ export const Home = () => {
     )
   },[store.planetData])
 
-
-
   return (
     <>
       <div className="row">
-        {/* {store.peopleData.map((peopleData, index) => {
-          return (
-              <div className="d-flex col-3" key={index}>
-                <Card               
-                  title={peopleData.name}
-                  gender={peopleData.gender}
-                  height={peopleData.height}
-                />
-              </div>
-          );
-        })} */}
-        {peopleList}
       </div>
 
-      <div className="row">
-        {/* {store.planetData.map((planetData, index) => {
+      <div className="row overflow-auto">
+        {store.planetData.map((planetData, index) => {
           return (
-              <div className="d-flex col-3" key={index} >
-                <Card title={planetData.name} />
+              <div className="d-flex col-3">
+                <Card key={index} title={planetData.name} uid={planetData.uid} />
               </div>
           );
-        })} */}
-        {planetList}
+        })} 
       </div>
     </>
   );
