@@ -24,7 +24,7 @@ span {
 }
 
 i:hover {
-    color: green;
+    color: yellow;
 transform: scale(1.2);
 }
 
