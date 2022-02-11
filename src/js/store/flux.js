@@ -10,6 +10,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 
 		actions: {
+
+			getPeopleDetail:  (id) => {
+				fetch(getStore().urlAPI.concat("/people/",id)).then(response=>{
+					if(response.ok){
+						return response.json()
+					}
+					throw new Error("fail to get people details")
+				}).then(responseAddJSON =>{
+					console.log("Response add json", responseAddJSON)
+					setStore({peopleDetail:[responseAddJSON.result.properties]})
+				}).catch(err =>{
+					console.error(err.message)
+				})
+				},
 			// Use getActions to call a function within a fuction
 
 			addElementListArr: (inputValue) => {

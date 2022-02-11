@@ -1,60 +1,23 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as PropTypes from "prop-types";
 import "../../styles/Details.css";
 import Card from "../component/Card.jsx";
+import { Context } from "../store/appContext";
+import { useParams } from "react-router-dom";
 
-const Details = (props) => {
-		// Cargar Personajes
-        people = 'https://www.swapi.tech/api/people/'
-        puid = document.querySelector('puid');
-        LoadPeople: () => {
-            //console.log((getStore().urlAPI).concat('/people'))
-        fetch((poeple).concat(), {
-        method: "GET",
-        headers: {
-            Accept: "application/json",
-        },
-    })
-        .then((response) => {
-            if (response.ok) {
-                return response.json();
-            }
-            throw new Error('Loading People Failed')
-        })
-        .then((res) => {
-            setStore({peopleData:res.results});
-            setStore({peopleData: peopleData});
-                
-        })
-        .catch((err) => console.error(err)); 
-        },
+const Details = () => {
 
-// Cargar Planetas 
+  const {store,actions} = useContext(Context);
 
-LoadPlanet = () => {
-//console.log((getStore().urlAPI).concat('/planets'))
-fetch((getStore().urlAPI).concat('/planets'), {
-method: "GET",
-headers: {
-Accept: "application/json",
-},
-})
-.then((response) => {
-console.log(response);
-if (response.ok) {
-    return response.json();
-}
-throw new Error('Loading Planets Failed')
-})
-.then((res) => {
-setStore({planetData:res.results});
-setStore({planetData: planetData});
-//console.log({planetData:res.results})
-    
-})
-.catch((err) => console.error(err)); 
-}
+  let params = useParams();
+  console.log(params.id);
+  useEffect(
+    ()=>{
+      actions.getPeopleDetail(params.id)
+    },[]
+  );
+  
 
   return (
     <>
