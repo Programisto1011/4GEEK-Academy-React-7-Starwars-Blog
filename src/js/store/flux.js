@@ -20,6 +20,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}).then(responseAddJSON =>{
 					console.log("Response add json", responseAddJSON)
 					setStore({peopleDetail:[responseAddJSON.result.properties]})
+					console.log(`Store people detail" ${getStore.peopleDetail}`)
 				}).catch(err =>{
 					console.error(err.message)
 				})

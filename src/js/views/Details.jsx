@@ -18,16 +18,17 @@ const Details = () => {
     },[]
   );
   
+  console.log(`People details: ${store.peopleDetail}`);
 
   return (
     <>
       <div className="container justify-content-center">
         <div className="row">
           <div className="col-6">
-            <img src="..." alt={store.peopleDetail.name} />
+            {/* <img src="..." alt={store.peopleDetail.name} /> */}
           </div>
           <div className="col-6">
-            <h5>{store.peopleDetail.name}</h5>
+            <h5>{store.peopleDetail.height}</h5>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
               neque porro fugit eligendi magnam commodi ex doloremque,
@@ -36,10 +37,10 @@ const Details = () => {
             </p>
           </div>
         </div>
-        <div className="row">
+        {/* <div className="row">
           <table>
           <tbody>
-					{store.peopleDetail.map((row, i) => (
+					{store.peopleDetail.map((row, i) => {
 						<tr key={i}>
 							{row.map((column, j) => (
 								<td key={j}>
@@ -47,10 +48,10 @@ const Details = () => {
 								</td>
 							))}
 						</tr>
-					))}
+					})}
 				</tbody>
           </table>
-        </div>
+        </div> */}
       </div>
     </>
   );
@@ -62,4 +63,4 @@ Details.propTypes = {
   gender: PropTypes.string,
 };
 
-export default Card;
+export default Details;
