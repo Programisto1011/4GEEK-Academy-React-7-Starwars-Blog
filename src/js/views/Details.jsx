@@ -27,10 +27,10 @@ const Details = () => {
       return(
         <>
           <div key={index} className="row">
-            <div className="col-6">
+            <div className="col-lg-6">
                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/250px-Star_Wars_Logo.svg.png" alt={store.peopleDetail.name} /> 
             </div>
-            <div className="col-6">   
+            <div className="col-lg-6">   
               <h5>{detail.name}</h5>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
