@@ -25,9 +25,10 @@ const DetailsPlanet = () => {
     <div className="container justify-content-center">
     {store.planetDetail.map((detail, index) =>{
       return(
+        <>
         <div key={index} className="row">
           <div className="col-6">
-            {/* <img src="..." alt={store.peopleDetail.name} /> */}
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/250px-Star_Wars_Logo.svg.png" alt={detail.name} />
           </div>
           <div className="col-6">   
                 <h5>{detail.name}</h5>
@@ -39,6 +40,21 @@ const DetailsPlanet = () => {
                 </p>             
           </div>
         </div>
+        <div class="row">
+            <table class="default"> 
+              <tr>
+                <th>Population</th>
+                <th>Gravity</th>
+                <th>Diameter</th>
+              </tr>
+              <tr>
+                <td>{detail.population}</td>
+                <td>{detail.gravity}</td>
+                <td>{detail.diameter}</td>      
+              </tr> 
+            </table>
+          </div>
+        </>
       )})}
       </div>
   );
