@@ -7,6 +7,7 @@ import injectContext from "./store/appContext";
 
 import { OwnNavbar } from "./component/OwnNavbar.jsx";
 import Details from "./views/Details.jsx"
+import DetailsPlanet from "./views/DetailsPlanet.jsx";
 
 
 //create your first component
@@ -26,6 +27,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/Details/:id">
 							<Details />
+						</Route>
+						<Route exact path="/DetailsPlanet/:id">
+							<DetailsPlanet />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

@@ -26,8 +26,7 @@ export const Home = () => {
             <div className="d-flex col-3" key={index}>
               <Card               
                 title={peopleData.name}
-                gender={peopleData.gender}
-                height={peopleData.height}
+                uid={peopleData.uid}
               />
             </div>
         );
@@ -52,18 +51,18 @@ export const Home = () => {
       <div className="row overflow-auto">
         {store.peopleData.map((peopleData, index) => {
           return (
-              <div className="d-flex col-3">
-                <Card key={index} title={peopleData.name} uid={peopleData.uid} />
+              <div className="d-flex col-3" key={index}>
+                <Card title={peopleData.name} uid={peopleData.uid} link={"/Details/".concat(peopleData.uid)} />
               </div>
           );
         })} 
       </div>
 
       <div className="row overflow-auto">
-        {store.peopleData.map((peopleData, index) => {
+        {store.planetData.map((planetData, index) => {
           return (
-              <div className="d-flex col-3">
-                <Card key={index} title={peopleData.name} uid={peopleData.uid} />
+              <div className="d-flex col-3" key={index} >
+                <Card title={planetData.name} uid={planetData.uid} link={"/DetailsPlanet/".concat(planetData.uid)} />
               </div>
           );
         })} 

@@ -20,12 +20,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}).then(responseAddJSON =>{
 					console.log("Response add json", responseAddJSON)
 					setStore({peopleDetail:[responseAddJSON.result.properties]})
-					console.log(`Store people detail" ${getStore.peopleDetail}`)
+					console.log("Store people detail", getStore().peopleDetail)
 				}).catch(err =>{
 					console.error(err.message)
 				})
 				},
 			// Use getActions to call a function within a fuction
+
+
+			//planetDetails
+
+			getPlanetDetail:  (id) => {
+				fetch(getStore().urlAPI.concat("/planets/",id)).then(response=>{
+					if(response.ok){
+						return response.json()
+					}
+					throw new Error("fail to get planet details")
+				}).then(responseAddJSON =>{
+					console.log("Response add json", responseAddJSON)
+					setStore({planetDetail:[responseAddJSON.result.properties]})
+					console.log("Store planet detail", getStore().planetDetail)
+				}).catch(err =>{
+					console.error(err.message)
+				})
+				},
 
 			addElementListArr: (inputValue) => {
 				setStore({list:[...getStore().list, inputValue]})

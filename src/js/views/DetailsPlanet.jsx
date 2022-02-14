@@ -6,7 +6,7 @@ import Card from "../component/Card.jsx";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
 
-const Details = () => {
+const DetailsPlanet = () => {
 
   const {store,actions} = useContext(Context);
 
@@ -14,23 +14,23 @@ const Details = () => {
   console.log(`id: ${params.id}`);
   useEffect(
     ()=>{
-      actions.getPeopleDetail(params.id)
+      actions.getPlanetDetail(params.id)
     },[]
   );
   
-  console.log("People details in vista :", store.peopleDetail);
+  console.log("Planet details in vista :", store.planetDetail);
   
   return (
 
     <div className="container justify-content-center">
-    {store.peopleDetail.map((detail, index) =>{
+    {store.planetDetail.map((detail, index) =>{
       return(
         <div key={index} className="row">
           <div className="col-6">
             {/* <img src="..." alt={store.peopleDetail.name} /> */}
           </div>
           <div className="col-6">   
-                <h5>{detail.height}</h5>
+                <h5>{detail.name}</h5>
                 <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
                 neque porro fugit eligendi magnam commodi ex doloremque,
@@ -45,4 +45,4 @@ const Details = () => {
 };
 
 
-export default Details;
+export default DetailsPlanet;
