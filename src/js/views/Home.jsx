@@ -49,18 +49,26 @@ export const Home = () => {
 
   return (
     <>
-      <div className="row">
-      </div>
-
       <div className="row overflow-auto">
-        {store.planetData.map((planetData, index) => {
+        {store.peopleData.map((peopleData, index) => {
           return (
               <div className="d-flex col-3">
-                <Card key={index} title={planetData.name} uid={planetData.uid} />
+                <Card key={index} title={peopleData.name} uid={peopleData.uid} />
               </div>
           );
         })} 
       </div>
+
+      <div className="row overflow-auto">
+        {store.peopleData.map((peopleData, index) => {
+          return (
+              <div className="d-flex col-3">
+                <Card key={index} title={peopleData.name} uid={peopleData.uid} />
+              </div>
+          );
+        })} 
+      </div>
+      
     </>
   );
 };
